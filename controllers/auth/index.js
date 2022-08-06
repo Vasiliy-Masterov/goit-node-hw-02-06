@@ -4,6 +4,7 @@ const getCurrent=require('./getCurrent');
 const logout=require('./logout');
 const verifyEmail=require('./verifyEmail');
 const resendEmail=require('./resendEmail');
+const updateAvatar=require('./updateAvatar');
 
 module.exports={
     signup,
@@ -11,5 +12,6 @@ module.exports={
     getCurrent,
     logout,
     verifyEmail,
-    resendEmail
+    resendEmail,
+    updateAvatar
 }

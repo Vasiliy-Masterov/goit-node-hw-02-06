@@ -1,3 +1,4 @@
+const gravatar=require('gravatar');
 const bcrypt=require('bcryptjs');
 const {User, schemas} = require('../../models/user');
 const { createError, sendEmail } = require('../../helpers');
@@ -17,8 +18,9 @@ if(user){
     throw createError(409, "Email in use");
 }
 const verificationToken=nanoid();
+const avatarURL=gravatar.url(email);
 const hashPassword=await bcrypt.hash(password, 10);
-const result=await User.create({...req.body, password:hashPassword, verificationToken});
+const result=await User.create({...req.body, password:hashPassword, avatarURL, verificationToken});
 
 const mail={
     to: email,
@@ -32,6 +34,7 @@ res.status(201).json({
      user:{
         email:result.email,
         subscription:result.subscription,
+        avatarURL,
         verificationToken
     }
     })
