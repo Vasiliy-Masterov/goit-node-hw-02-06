@@ -12,4 +12,9 @@ router.get('/current', auth, ctrlWrapper(ctrl.getCurrent));
 
 router.get('/logout', auth, ctrlWrapper(ctrl.logout));
 
+router.get('/verify/:verificationToken', ctrlWrapper(ctrl.verifyEmail));
+
+
+router.post('/verify', ctrlWrapper(ctrl.resendEmail));
+
 module.exports=router;
