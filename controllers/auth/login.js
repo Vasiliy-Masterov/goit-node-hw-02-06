@@ -12,7 +12,7 @@ const login=async(req,res)=>{
     }
     const {email, password}=req.body;
     const result=await User.findOne({email});
-    if (!result ){
+    if (!result || !result.verify){
         throw createError(401, 'Email or password is wrong')
     }
     const comparePassword=await bcrypt.compare(password, result.password);
