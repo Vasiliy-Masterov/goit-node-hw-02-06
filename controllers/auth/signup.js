@@ -36,6 +36,7 @@ res.status(201).json({
         subscription:result.subscription,
         avatarURL,
         verificationToken
+
     }
     })
 }

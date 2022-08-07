@@ -3,5 +3,5 @@ const upload = require('./upload');
 
 module.exports = {
     auth,
-    upload
+    upload    
 }
